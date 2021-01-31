@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <title>Community Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+
+  </style>
+</head>
+<body>
+<br><br>
+{% for message in messages %}
+<h3 style="color: orange, font-weight: bold; margin-left: 600px; border: 1px; border-radius:15px; background: grey; width: 400px;" class="text-center">{{message}}</h3>
+{% endfor %}
+<form method="post">
+  {% csrf_token %}
+<div class="wrapper">
+  <div class="btn">
+    <button id="button1" type="submit" name="button" value="admin">ADMIN</button>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="btn1">
+    <button id="button2" type="submit" name="button" value="user">USER</button>
+  </div>
+</div>
+</form>
+</body>
+</html>

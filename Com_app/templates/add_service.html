@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<form method="post" class="container" style="margin-top: 50px; width:500px;">
+    {% csrf_token %}
+  <h3 style="text-align:center; margin-bottom:50px; color:black;">Add Service</h3>
+  <div class="mb-3">
+    <label for="exampleInputServiceName" class="form-label">Service Name</label>
+    <input name="service_name" type="text" class="form-control" id="exampleInputServiceName">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputSPN" class="form-label">Service Provider Name</label>
+    <input name="service_provider" type="text" class="form-control" id="exampleInputSPN" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPrice" class="form-label">Price</label>
+    <input name="price" type="text" class="form-control" id="exampleInputPrice">
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputContactNo" class="form-label">Contact No</label>
+    <input name="contact_no" type="text" class="form-control" id="exampleInputContactNo">
+  </div>
+  <button type="submit" class="btn btn-dark bg-dark">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<form method="post" class="container" style="margin-top: 50px; width:500px;">
+    {% csrf_token %}
+  <h3 style="text-align:center; margin-bottom:50px; color:black;">Ask Question</h3>
+
+  <div class="input-group mb-3">
+    <label for="exampleInputSPN" class="form-label">Question Category</label>
+    <select name="category" style="width:475px; height: 40px;" class="form-control custom-select" id="inputGroupSelect01">
+      <option selected>Choose...</option>
+      <option value="lan_internet">LAN-Internet</option>
+      <option value="sim">SIM</option>
+      <option value="landline">LANDLINE</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputSPN" class="form-label">Question</label>
+    <input name="question" type="text" class="form-control" id="exampleInputSPN" aria-describedby="emailHelp">
+  </div>
+  <button type="submit" class="btn btn-dark bg-dark">Submit</button>
+</form>
+{% endblock %}

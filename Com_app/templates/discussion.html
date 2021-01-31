@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="alert alert-success" role="alert">
+  <h4 class="container-fluid alert-heading" style="font-size:25px;">Lets, Discuss!</h4>
+  <p style="font-size:20px;" class="container-fluid">{{que.question}}</p>
+  <button style="margin-left:80%; margin-top:-120px" class="btn btn-primary" onclick="myFunction()">
+      Submit Your Answer
+  </button>
+</div>
+<div style="margin-top:-16px; display: none;" id="myDIV" class="alert alert-secondary" >
+    <form method="post" class=" mb-3">
+        {% csrf_token %}
+      <label class="container-fluid form-label" for="exampleFormControlTextarea1">Submit Your Answer:</label>
+      <textarea name="answer" class="form-control container-fluid" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <div style="margin-top:10px;">
+      <button class="btn btn-dark bg-dark">Submit</button>
+      </div>
+    </form>
+</div>
+<div style="margin-top:-16px;" class="alert alert-secondary" role="alert">
+    <p class="container-fluid alert-heading" style="font-size:25px;">Answers:</p>
+    <hr>
+    {% for answer in answers %}
+    <p class="container-fluid"><label>{{request.user}}: </label> &nbsp&nbsp{{answer.answer}}</p>
+    <hr>
+    {% endfor %}
+</div>
+<script>
+    function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+</script>
+{% endblock %}
